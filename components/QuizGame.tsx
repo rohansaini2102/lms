@@ -3,6 +3,7 @@ import { Clock, CheckCircle, XCircle, Trophy, Flame, AlertCircle, ArrowRight, Ro
 import { Question, UserStats } from '../types';
 import { generateQuizQuestions } from '../services/geminiService';
 import { DEMO_QUESTIONS } from '../constants';
+import { CelebrationIllustration, StudentIllustration } from './VisualAssets';
 
 interface QuizGameProps {
   examId: string;
@@ -175,41 +176,47 @@ const QuizGame: React.FC<QuizGameProps> = ({ examId, subjectId, topicId, onExit 
 
     return (
       <div className="max-w-2xl mx-auto animate-fadeIn">
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-          <div className="bg-primary-600 p-8 text-white text-center">
-            <Trophy className="w-16 h-16 mx-auto mb-4 text-primary-100" />
-            <h2 className="text-3xl font-bold mb-2">Quiz Complete!</h2>
-            <p className="text-primary-100 opacity-90">{message}</p>
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-dark">
+          <div className="bg-neon-green p-8 text-dark text-center relative overflow-hidden">
+            {/* Celebration Illustration */}
+            <CelebrationIllustration className="w-48 h-40 mx-auto mb-2" />
+            <h2 className="text-3xl font-bold mb-2 font-grotesk">Quiz Complete!</h2>
+            <p className="text-dark/70 font-medium">{message}</p>
           </div>
           
           <div className="p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="p-4 bg-slate-50 rounded-xl text-center">
-                <p className="text-slate-500 text-sm mb-1">Score</p>
-                <p className="text-2xl font-bold text-slate-800">{stats.score}</p>
+              <div className="p-4 bg-neon-yellow/20 rounded-xl text-center border-2 border-dark">
+                <p className="text-dark/60 text-sm mb-1 font-bold uppercase">Score</p>
+                <p className="text-2xl font-bold text-dark font-grotesk">{stats.score}</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-xl text-center">
-                <p className="text-slate-500 text-sm mb-1">Accuracy</p>
-                <p className="text-2xl font-bold text-slate-800">{percentage}%</p>
+              <div className="p-4 bg-neon-blue/20 rounded-xl text-center border-2 border-dark">
+                <p className="text-dark/60 text-sm mb-1 font-bold uppercase">Accuracy</p>
+                <p className="text-2xl font-bold text-dark font-grotesk">{percentage}%</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-xl text-center">
-                <p className="text-slate-500 text-sm mb-1">Max Streak</p>
-                <div className="flex items-center justify-center gap-1 text-orange-600">
+              <div className="p-4 bg-neon-pink/20 rounded-xl text-center border-2 border-dark">
+                <p className="text-dark/60 text-sm mb-1 font-bold uppercase">Max Streak</p>
+                <div className="flex items-center justify-center gap-1 text-neon-pink">
                    <Flame size={20} fill="currentColor" />
-                   <span className="text-2xl font-bold">{stats.maxStreak}</span>
+                   <span className="text-2xl font-bold font-grotesk">{stats.maxStreak}</span>
                 </div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-xl text-center">
-                <p className="text-slate-500 text-sm mb-1">Time</p>
-                <p className="text-2xl font-bold text-slate-800">{Math.floor(stats.timeTaken / 60)}m {stats.timeTaken % 60}s</p>
+              <div className="p-4 bg-neon-green/20 rounded-xl text-center border-2 border-dark">
+                <p className="text-dark/60 text-sm mb-1 font-bold uppercase">Time</p>
+                <p className="text-2xl font-bold text-dark font-grotesk">{Math.floor(stats.timeTaken / 60)}m {stats.timeTaken % 60}s</p>
               </div>
             </div>
 
+            {/* Happy student celebrating */}
+            <div className="flex justify-center mb-6">
+              <StudentIllustration className="w-32 h-40" variant="single" />
+            </div>
+
             <div className="flex gap-4 justify-center">
-              <button onClick={onExit} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-100 text-slate-700 font-semibold hover:bg-slate-200 transition-colors">
+              <button onClick={onExit} className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-dark font-bold border-2 border-dark shadow-neubrutalism hover:translate-y-[2px] hover:shadow-none transition-all">
                 <Home size={20} /> Home
               </button>
-              <button onClick={() => window.location.reload()} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/30">
+              <button onClick={() => window.location.reload()} className="flex items-center gap-2 px-6 py-3 rounded-full bg-neon-blue text-white font-bold border-2 border-dark shadow-neubrutalism hover:translate-y-[2px] hover:shadow-none transition-all">
                 <RotateCcw size={20} /> Retry
               </button>
             </div>

@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import QuizGame from './components/QuizGame';
 import { EXAM_CATEGORIES, SUBJECTS } from './constants';
 import { ExamCategory, Subject, Topic, Subtopic } from './types';
-import { InfiniteMarquee, Sticker, GridBackground } from './components/VisualAssets';
+import { InfiniteMarquee, Sticker, GridBackground, StudentIllustration, AIBrainIllustration, BadgeIllustration, ExamIcon, SubjectIcon } from './components/VisualAssets';
 import { ArrowRight, ChevronRight, CheckCircle2, Play, Star } from 'lucide-react';
 
 type Screen = 'HOME' | 'SUBJECTS' | 'TOPICS' | 'SUBTOPICS' | 'QUIZ';
@@ -98,7 +98,7 @@ export default function App() {
           </p>
           
           <div className="flex flex-wrap justify-center gap-6">
-             <button 
+             <button
                 onClick={() => document.getElementById('exams')?.scrollIntoView({behavior: 'smooth'})}
                 className="bg-neon-green text-dark text-xl font-bold px-10 py-5 rounded-full border-2 border-dark shadow-neubrutalism hover:translate-y-[2px] hover:shadow-none transition-all flex items-center gap-3"
              >
@@ -108,6 +108,16 @@ export default function App() {
                 View Syllabus
              </button>
           </div>
+
+          {/* Happy Students Illustration */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-16"
+          >
+            <StudentIllustration className="w-full max-w-lg mx-auto h-auto" variant="duo" />
+          </motion.div>
         </motion.div>
       </section>
 
@@ -154,6 +164,12 @@ export default function App() {
                        </span>
                        <ArrowRight size={48} className="group-hover:-rotate-45 transition-transform duration-300" />
                     </div>
+
+                    {/* Exam Icon */}
+                    <div className="mb-6">
+                      <ExamIcon type={exam.id as 'ras' | 'ias' | 'reet' | 'patwar'} className="w-20 h-20" />
+                    </div>
+
                     <h3 className="font-grotesk font-bold text-6xl leading-tight mb-4">
                       {exam.name}
                     </h3>
@@ -183,7 +199,7 @@ export default function App() {
            WHY WE <span className="text-neon-pink">RULE.</span>
         </h2>
 
-        {/* Feature 1 */}
+        {/* Feature 1 - AI Quizzes */}
         <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-[3rem] border-4 border-dark shadow-neubrutalism-lg overflow-hidden min-h-[500px]">
            <div className="p-12 md:p-16 flex flex-col justify-center">
               <h3 className="font-grotesk font-bold text-5xl md:text-6xl mb-6">AI-Generated Quizzes.</h3>
@@ -191,24 +207,39 @@ export default function App() {
                 Our Gemini AI engine creates unique questions every time you practice. Never solve the same paper twice.
               </p>
            </div>
-           <div className="bg-neon-blue flex items-center justify-center p-12 border-t-4 md:border-t-0 md:border-l-4 border-dark">
-              <div className="bg-white border-4 border-dark rounded-3xl p-8 w-full max-w-sm rotate-3 shadow-neubrutalism">
+           <div className="bg-neon-blue flex items-center justify-center p-12 border-t-4 md:border-t-0 md:border-l-4 border-dark relative overflow-hidden">
+              {/* AI Brain Illustration */}
+              <AIBrainIllustration className="w-64 h-64 absolute opacity-20 -right-10 -bottom-10" />
+              <div className="bg-white border-4 border-dark rounded-3xl p-8 w-full max-w-sm rotate-3 shadow-neubrutalism relative z-10">
                  <div className="h-4 bg-gray-200 rounded-full w-2/3 mb-6"></div>
                  <div className="space-y-4">
-                    <div className="h-12 bg-neon-blue/20 rounded-xl border-2 border-neon-blue w-full"></div>
-                    <div className="h-12 bg-gray-100 rounded-xl w-full"></div>
-                    <div className="h-12 bg-gray-100 rounded-xl w-full"></div>
+                    <div className="h-12 bg-neon-blue/20 rounded-xl border-2 border-neon-blue w-full flex items-center px-4">
+                      <span className="text-neon-blue font-bold">A.</span>
+                      <span className="ml-2 text-sm text-gray-600">AI Generated Option</span>
+                    </div>
+                    <div className="h-12 bg-gray-100 rounded-xl w-full flex items-center px-4">
+                      <span className="text-gray-500 font-bold">B.</span>
+                      <span className="ml-2 text-sm text-gray-400">Dynamic Content</span>
+                    </div>
+                    <div className="h-12 bg-gray-100 rounded-xl w-full flex items-center px-4">
+                      <span className="text-gray-500 font-bold">C.</span>
+                      <span className="ml-2 text-sm text-gray-400">Unique Questions</span>
+                    </div>
                  </div>
               </div>
            </div>
         </div>
 
-        {/* Feature 2 */}
+        {/* Feature 2 - Gamified */}
         <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-[3rem] border-4 border-dark shadow-neubrutalism-lg overflow-hidden min-h-[500px]">
-           <div className="bg-neon-pink flex items-center justify-center p-12 border-b-4 md:border-b-0 md:border-r-4 border-dark order-2 md:order-1">
-               <div className="relative">
+           <div className="bg-neon-pink flex items-center justify-center p-12 border-b-4 md:border-b-0 md:border-r-4 border-dark order-2 md:order-1 relative">
+               {/* Badge Illustration */}
+               <BadgeIllustration className="w-48 h-60" />
+               <div className="absolute top-8 left-8">
                  <Sticker text="Streak: 12 Days" color="bg-white" rotate="-5deg" />
-                 <Sticker text="Rank #1" color="bg-neon-yellow" rotate="5deg" className="top-12 left-12" />
+               </div>
+               <div className="absolute bottom-8 right-8">
+                 <Sticker text="Rank #1" color="bg-neon-yellow" rotate="5deg" />
                </div>
            </div>
            <div className="p-12 md:p-16 flex flex-col justify-center order-1 md:order-2">
@@ -216,6 +247,19 @@ export default function App() {
               <p className="text-xl md:text-2xl text-dark/70 font-medium">
                 Earn badges, maintain streaks, and climb the leaderboard. Making government prep actually fun.
               </p>
+           </div>
+        </div>
+
+        {/* Feature 3 - Community of Students */}
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-[3rem] border-4 border-dark shadow-neubrutalism-lg overflow-hidden min-h-[500px]">
+           <div className="p-12 md:p-16 flex flex-col justify-center">
+              <h3 className="font-grotesk font-bold text-5xl md:text-6xl mb-6">Join 10,000+ Students.</h3>
+              <p className="text-xl md:text-2xl text-dark/70 font-medium">
+                Be part of Rajasthan's largest exam prep community. Learn together, grow together, succeed together.
+              </p>
+           </div>
+           <div className="bg-neon-green flex items-center justify-center p-8 border-t-4 md:border-t-0 md:border-l-4 border-dark">
+              <StudentIllustration className="w-full max-w-md h-auto" variant="group" />
            </div>
         </div>
 
@@ -250,48 +294,75 @@ export default function App() {
   );
 
   // Sub-screens with Swiss Design
-  const renderSelectionScreen = (title: string, subtitle: string, items: any[], onSelect: (item: any) => void, type: 'subject' | 'topic' | 'subtopic') => (
-    <div className="min-h-screen pt-32 px-4 pb-20 max-w-7xl mx-auto">
-      <div className="mb-12">
-        <button onClick={handleBack} className="flex items-center gap-2 font-bold hover:underline mb-6">
-           ← Go Back
-        </button>
-        <h2 className="font-grotesk font-bold text-6xl md:text-7xl mb-4">{title}</h2>
-        <p className="text-2xl font-medium text-dark/60 max-w-2xl">{subtitle}</p>
-      </div>
+  const renderSelectionScreen = (title: string, subtitle: string, items: any[], onSelect: (item: any) => void, type: 'subject' | 'topic' | 'subtopic') => {
+    const cardColors = ['bg-neon-yellow/10', 'bg-neon-blue/10', 'bg-neon-pink/10', 'bg-neon-green/10', 'bg-neon-purple/10'];
+    const accentColors = ['bg-neon-yellow', 'bg-neon-blue', 'bg-neon-pink', 'bg-neon-green', 'bg-neon-purple'];
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((item, idx) => (
-          <div 
-            key={item.id}
-            onClick={() => onSelect(item)}
-            className="group bg-white rounded-3xl border-4 border-dark p-8 hover:shadow-neubrutalism hover:-translate-y-2 transition-all cursor-pointer relative overflow-hidden"
-          >
-            {type === 'subtopic' && (
-              <div className="absolute top-4 right-4 w-10 h-10 bg-neon-green rounded-full flex items-center justify-center border-2 border-dark opacity-0 group-hover:opacity-100 transition-opacity">
-                <Play size={20} fill="black" />
+    return (
+      <div className="min-h-screen pt-32 px-4 pb-20 max-w-7xl mx-auto">
+        <div className="mb-12">
+          <button onClick={handleBack} className="flex items-center gap-2 font-bold hover:underline mb-6 bg-white px-4 py-2 rounded-full border-2 border-dark shadow-neubrutalism-sm hover:shadow-none hover:translate-y-[1px] transition-all">
+             ← Go Back
+          </button>
+          <h2 className="font-grotesk font-bold text-6xl md:text-7xl mb-4">{title}</h2>
+          <p className="text-2xl font-medium text-dark/60 max-w-2xl">{subtitle}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item, idx) => (
+            <div
+              key={item.id}
+              onClick={() => onSelect(item)}
+              className={`group ${cardColors[idx % cardColors.length]} rounded-3xl border-4 border-dark p-8 hover:shadow-neubrutalism hover:-translate-y-2 transition-all cursor-pointer relative overflow-hidden`}
+            >
+              {type === 'subtopic' && (
+                <div className="absolute top-4 right-4 w-12 h-12 bg-neon-green rounded-full flex items-center justify-center border-2 border-dark opacity-0 group-hover:opacity-100 transition-opacity shadow-neubrutalism-sm">
+                  <Play size={24} fill="black" />
+                </div>
+              )}
+
+              {/* Icon based on type */}
+              <div className="mb-6 flex items-center gap-4">
+                {type === 'subject' && (
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <SubjectIcon type={item.id || item.name.toLowerCase()} className="w-14 h-14" />
+                  </div>
+                )}
+                {type !== 'subject' && (
+                  <div className={`w-16 h-16 ${accentColors[idx % accentColors.length]} rounded-2xl border-2 border-dark flex items-center justify-center text-3xl font-bold font-grotesk shadow-neubrutalism-sm`}>
+                    {idx + 1}
+                  </div>
+                )}
               </div>
-            )}
-            
-            <div className="mb-6 w-16 h-16 bg-gray-100 rounded-2xl border-2 border-dark flex items-center justify-center text-3xl font-bold group-hover:bg-neon-yellow transition-colors">
-              {idx + 1}
+
+              <h3 className="font-grotesk font-bold text-2xl md:text-3xl mb-3 leading-tight group-hover:underline decoration-4 decoration-neon-blue underline-offset-4">
+                {item.name}
+              </h3>
+
+              <div className="flex items-center gap-2 font-bold text-dark/50 group-hover:text-dark transition-colors">
+                {type === 'subject' && (
+                  <span className="bg-white px-3 py-1 rounded-full border border-dark text-sm">
+                    {item.topics?.length || 0} Topics
+                  </span>
+                )}
+                {type === 'topic' && (
+                  <span className="bg-white px-3 py-1 rounded-full border border-dark text-sm">
+                    {item.subtopics?.length || 0} Chapters
+                  </span>
+                )}
+                {type === 'subtopic' && (
+                  <span className="bg-neon-green px-3 py-1 rounded-full border border-dark text-sm text-dark">
+                    Start Quiz
+                  </span>
+                )}
+                <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform ml-auto" />
+              </div>
             </div>
-            
-            <h3 className="font-grotesk font-bold text-3xl mb-3 leading-tight group-hover:underline decoration-4 decoration-neon-blue underline-offset-4">
-              {item.name}
-            </h3>
-            
-            <div className="flex items-center gap-2 font-bold text-dark/50 group-hover:text-dark transition-colors">
-              {type === 'subject' && `${item.topics?.length || 0} Topics`}
-              {type === 'topic' && `${item.subtopics?.length || 0} Chapters`}
-              {type === 'subtopic' && 'Start Quiz'}
-              <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <Layout activeScreen={screen === 'QUIZ' ? 'quiz' : 'home'} onGoHome={handleGoHome}>
