@@ -18,7 +18,8 @@ const iconMap: Record<string, React.ElementType> = {
 const SubjectCard: React.FC<{
   subject: typeof SUBJECTS[0];
   index: number;
-}> = ({ subject, index }) => {
+  onSelect?: () => void;
+}> = ({ subject, index, onSelect }) => {
   const Icon = iconMap[subject.icon] || BookOpen;
 
   return (
@@ -28,6 +29,7 @@ const SubjectCard: React.FC<{
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+      onClick={onSelect}
       className="bg-white rounded-2xl border border-gray-100 p-6 cursor-pointer transition-all group relative overflow-hidden"
     >
       {/* Background gradient on hover */}
@@ -167,7 +169,11 @@ const ExamHierarchy: React.FC = () => {
   );
 };
 
-const SubjectBrowser: React.FC = () => {
+interface SubjectBrowserProps {
+  onStartQuiz?: () => void;
+}
+
+const SubjectBrowser: React.FC<SubjectBrowserProps> = ({ onStartQuiz }) => {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +199,7 @@ const SubjectBrowser: React.FC = () => {
         {/* Subject Cards Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SUBJECTS.map((subject, index) => (
-            <SubjectCard key={subject.id} subject={subject} index={index} />
+            <SubjectCard key={subject.id} subject={subject} index={index} onSelect={onStartQuiz} />
           ))}
         </div>
 

@@ -46,7 +46,11 @@ const AnimatedCounter: React.FC<{ value: number; suffix: string }> = ({ value, s
   );
 };
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onStartQuiz?: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -126,6 +130,7 @@ const Hero: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: '0 8px 24px rgba(0, 133, 255, 0.35)' }}
                 whileTap={{ scale: 0.98 }}
+                onClick={onStartQuiz}
                 className="px-8 py-4 bg-primary text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2 text-lg"
               >
                 Start Free Practice

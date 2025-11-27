@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Menu, X, ChevronDown } from 'lucide-react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onStartQuiz?: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onStartQuiz }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
@@ -76,6 +80,7 @@ const Header: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.02, boxShadow: '0 4px 12px rgba(0, 133, 255, 0.3)' }}
               whileTap={{ scale: 0.98 }}
+              onClick={onStartQuiz}
               className="px-5 py-2 bg-primary text-white font-medium text-sm rounded-xl shadow-md transition-all"
             >
               Start Free
@@ -124,7 +129,10 @@ const Header: React.FC = () => {
             <button className="flex-1 py-3 text-gray-700 font-medium rounded-xl border border-gray-200">
               Login
             </button>
-            <button className="flex-1 py-3 bg-primary text-white font-medium rounded-xl">
+            <button
+              onClick={onStartQuiz}
+              className="flex-1 py-3 bg-primary text-white font-medium rounded-xl"
+            >
               Start Free
             </button>
           </div>

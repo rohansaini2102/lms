@@ -17,13 +17,14 @@ const iconMap: Record<string, React.ElementType> = {
   BadgeCheck,
 };
 
-const ExamCard: React.FC<{ exam: Exam; index: number; categoryLogo: string }> = ({ exam, index, categoryLogo }) => {
+const ExamCard: React.FC<{ exam: Exam; index: number; categoryLogo: string; onSelect?: () => void }> = ({ exam, index, categoryLogo, onSelect }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}
+      onClick={onSelect}
       className="bg-white rounded-xl border border-gray-100 p-4 cursor-pointer transition-all group"
     >
       <div className="flex items-start gap-4">
@@ -222,7 +223,11 @@ const getCategoryBgColor = (colorClass: string): string => {
   return colors[colorClass] || 'rgba(0, 133, 255, 0.08)';
 };
 
-const ExamBrowser: React.FC = () => {
+interface ExamBrowserProps {
+  onExamSelect?: (examId: string) => void;
+}
+
+const ExamBrowser: React.FC<ExamBrowserProps> = ({ onExamSelect }) => {
   const [activeCategory, setActiveCategory] = useState<string>(EXAM_CATEGORIES[0].id);
 
   const currentCategory = EXAM_CATEGORIES.find(c => c.id === activeCategory) || EXAM_CATEGORIES[0];
@@ -349,7 +354,13 @@ const ExamBrowser: React.FC = () => {
                 {/* Exams Grid */}
                 <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
                   {currentCategory.exams.map((exam, index) => (
-                    <ExamCard key={exam.id} exam={exam} index={index} categoryLogo={currentCategory.logo} />
+                    <ExamCard
+                      key={exam.id}
+                      exam={exam}
+                      index={index}
+                      categoryLogo={currentCategory.logo}
+                      onSelect={() => onExamSelect?.(exam.id)}
+                    />
                   ))}
                 </div>
               </motion.div>
