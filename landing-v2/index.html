@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RajPariksha - Crack Any Government Exam</title>
+  <meta name="description" content="India's most comprehensive exam preparation platform. Practice for SSC, Banking, Railways, UPSC, Defence, Teaching & State PSC exams." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            grotesk: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            // Primary
+            'primary': '#0085FF',
+            'primary-dark': '#0066CC',
+            // Success/Free badges
+            'success': '#00E58D',
+            'success-dark': '#00B870',
+            // Warning/Highlights
+            'warning': '#F59E0B',
+            // Category colors
+            'cat-banking': '#2563EB',
+            'cat-ssc': '#DC2626',
+            'cat-railways': '#059669',
+            'cat-defence': '#7C3AED',
+            'cat-teaching': '#F59E0B',
+            'cat-psc': '#0891B2',
+            'cat-upsc': '#4F46E5',
+            'cat-police': '#64748B',
+          },
+          boxShadow: {
+            'card': '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
+            'card-hover': '0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)',
+            'lg': '0 20px 25px rgba(0,0,0,0.1)',
+            'xl': '0 25px 50px rgba(0,0,0,0.12)',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'counter': 'counter 2s ease-out forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #d1d5db transparent;
+    }
+    *::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    *::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 3px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #1a1a1a;
+    }
+    .font-grotesk {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    /* Category sidebar active state */
+    .category-active {
+      background-color: #f1f5f9;
+      border-left: 3px solid #0085FF;
+      font-weight: 600;
+    }
+    /* Exam card logo placeholder */
+    .exam-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="./main.tsx"></script>
+</body>
+</html>

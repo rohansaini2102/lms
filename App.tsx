@@ -128,7 +128,7 @@ export default function App() {
       <section ref={targetRef} id="exams" className="relative h-[300vh] bg-dark">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           <motion.div style={{ x }} className="flex gap-16 px-24">
-            
+
             {/* Intro Card for Scroll Section */}
             <div className="w-[600px] h-[70vh] flex flex-col justify-center text-cream shrink-0">
                <h2 className="font-grotesk font-bold text-8xl mb-6 leading-[0.9]">
@@ -144,15 +144,15 @@ export default function App() {
             {EXAM_CATEGORIES.map((exam, index) => {
               const colors = [
                 'bg-neon-yellow',
-                'bg-neon-blue', 
-                'bg-neon-pink', 
+                'bg-neon-blue',
+                'bg-neon-pink',
                 'bg-neon-green'
               ];
               const cardColor = colors[index % colors.length];
               const textColor = index === 1 || index === 2 ? 'text-white' : 'text-dark';
 
               return (
-                <div 
+                <div
                   key={exam.id}
                   onClick={() => handleExamSelect(exam)}
                   className={`relative w-[500px] h-[70vh] ${cardColor} ${textColor} rounded-[3rem] border-4 border-dark p-10 flex flex-col justify-between shrink-0 cursor-pointer group hover:scale-[1.02] transition-transform duration-300 shadow-neubrutalism-lg`}

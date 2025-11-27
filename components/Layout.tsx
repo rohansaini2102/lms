@@ -32,6 +32,14 @@ const Layout: React.FC<LayoutProps> = ({ children, activeScreen, onGoHome }) => 
             ))}
           </div>
 
+          {/* V2 Landing Page Link */}
+          <a
+            href="/landing-v2/"
+            className="bg-neon-pink text-white px-4 py-2 rounded-full font-grotesk font-bold text-sm hover:bg-neon-blue transition-colors duration-300 flex items-center gap-1"
+          >
+            V2 <ArrowUpRight size={14} />
+          </a>
+
           {/* CTA */}
           <button className="bg-neon-green text-dark px-6 py-3 rounded-full font-grotesk font-bold hover:bg-neon-yellow transition-colors duration-300 flex items-center gap-2">
             Get Started <div className="w-2 h-2 bg-dark rounded-full"></div>

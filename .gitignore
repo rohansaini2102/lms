@@ -10,7 +10,15 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-landing
 *.local
+
+# Vite cache
+.vite
+**/.vite
+
+# Windows reserved names
+nul
 
 # Editor directories and files
 .vscode/*

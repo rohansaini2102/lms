@@ -489,9 +489,212 @@ export const SubjectIcon = ({ type, className = "" }: { type: string, className?
   );
 };
 
+// Minimalistic student studying illustration (earth tones)
+export const StudentStudyingIllustration = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Desk */}
+    <rect x="15" y="75" width="90" height="8" rx="2" fill="#B5836E"/>
+    <rect x="20" y="83" width="8" height="25" fill="#8B8178"/>
+    <rect x="92" y="83" width="8" height="25" fill="#8B8178"/>
+
+    {/* Book on desk */}
+    <path d="M35 70 Q35 65 45 65 L75 65 Q85 65 85 70 L85 75 L35 75 Z" fill="#E8DCC4"/>
+    <line x1="60" y1="65" x2="60" y2="75" stroke="#8B8178" strokeWidth="1"/>
+
+    {/* Student body */}
+    <ellipse cx="60" cy="55" rx="18" ry="20" fill="#7D8E6E"/>
+
+    {/* Head */}
+    <circle cx="60" cy="32" r="16" fill="#D4A574"/>
+
+    {/* Hair */}
+    <path d="M44 28 Q45 18 60 15 Q75 18 76 28 Q72 22 60 20 Q48 22 44 28" fill="#4A3728"/>
+
+    {/* Eyes looking down at book */}
+    <ellipse cx="54" cy="34" rx="2" ry="1.5" fill="#121212"/>
+    <ellipse cx="66" cy="34" rx="2" ry="1.5" fill="#121212"/>
+
+    {/* Small smile */}
+    <path d="M56 40 Q60 43 64 40" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+
+    {/* Arms on desk */}
+    <path d="M42 55 Q30 60 35 72" stroke="#D4A574" strokeWidth="8" strokeLinecap="round"/>
+    <path d="M78 55 Q90 60 85 72" stroke="#D4A574" strokeWidth="8" strokeLinecap="round"/>
+
+    {/* Coffee cup */}
+    <rect x="88" y="68" width="8" height="7" rx="1" fill="#C4785B"/>
+    <path d="M96 70 Q100 70 100 73 Q100 75 96 75" stroke="#C4785B" strokeWidth="2" fill="none"/>
+
+    {/* Steam from coffee */}
+    <path d="M90 65 Q92 62 90 60" stroke="#8B8178" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.5"/>
+    <path d="M93 66 Q95 63 93 61" stroke="#8B8178" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.5"/>
+  </svg>
+);
+
+// Student taking quiz/exam illustration
+export const StudentQuizIllustration = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Paper/Quiz sheet */}
+    <rect x="30" y="40" width="60" height="75" rx="3" fill="#F5F0E6" stroke="#8B8178" strokeWidth="1"/>
+
+    {/* Quiz lines */}
+    <line x1="38" y1="52" x2="82" y2="52" stroke="#E8DCC4" strokeWidth="2"/>
+    <line x1="38" y1="62" x2="78" y2="62" stroke="#E8DCC4" strokeWidth="2"/>
+    <line x1="38" y1="72" x2="75" y2="72" stroke="#E8DCC4" strokeWidth="2"/>
+    <line x1="38" y1="82" x2="70" y2="82" stroke="#E8DCC4" strokeWidth="2"/>
+
+    {/* Checkboxes */}
+    <rect x="38" y="90" width="8" height="8" rx="1" stroke="#7D8E6E" strokeWidth="1.5" fill="none"/>
+    <rect x="52" y="90" width="8" height="8" rx="1" stroke="#7D8E6E" strokeWidth="1.5" fill="none"/>
+    <rect x="66" y="90" width="8" height="8" rx="1" stroke="#7D8E6E" strokeWidth="1.5" fill="none"/>
+
+    {/* Checkmark in first box */}
+    <path d="M40 94 L43 97 L46 91" stroke="#7D8E6E" strokeWidth="2" strokeLinecap="round" fill="none"/>
+
+    {/* Student head peeking */}
+    <circle cx="60" cy="25" r="18" fill="#D4A574"/>
+
+    {/* Hair */}
+    <path d="M42 20 Q45 8 60 5 Q75 8 78 20 Q70 14 60 12 Q50 14 42 20" fill="#4A3728"/>
+
+    {/* Focused eyes */}
+    <circle cx="54" cy="26" r="2.5" fill="#121212"/>
+    <circle cx="66" cy="26" r="2.5" fill="#121212"/>
+    <circle cx="55" cy="25" r="1" fill="#FFF"/>
+    <circle cx="67" cy="25" r="1" fill="#FFF"/>
+
+    {/* Thinking expression */}
+    <path d="M56 33 L64 33" stroke="#121212" strokeWidth="1.5" strokeLinecap="round"/>
+
+    {/* Pencil in hand */}
+    <rect x="78" y="55" width="4" height="25" rx="1" fill="#D4915D" transform="rotate(15 80 67)"/>
+    <polygon points="78,80 80,85 82,80" fill="#D4A574" transform="rotate(15 80 82)"/>
+  </svg>
+);
+
+// IAS/Government officer aspiration illustration
+export const OfficerIllustration = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Building silhouette in background */}
+    <rect x="20" y="70" width="80" height="40" fill="#E8DCC4" opacity="0.5"/>
+    <rect x="35" y="55" width="15" height="55" fill="#E8DCC4" opacity="0.7"/>
+    <rect x="70" y="55" width="15" height="55" fill="#E8DCC4" opacity="0.7"/>
+    <path d="M25 70 L60 45 L95 70" fill="#E8DCC4" opacity="0.7"/>
+
+    {/* Person in formal attire */}
+    <rect x="45" y="65" width="30" height="40" rx="2" fill="#4A5D4B"/>
+
+    {/* Tie */}
+    <path d="M60 65 L57 75 L60 105 L63 75 Z" fill="#C4785B"/>
+
+    {/* Head */}
+    <circle cx="60" cy="50" r="18" fill="#D4A574"/>
+
+    {/* Hair - neat/professional */}
+    <path d="M42 45 Q45 32 60 30 Q75 32 78 45 Q72 38 60 36 Q48 38 42 45" fill="#2D2D2D"/>
+
+    {/* Confident eyes */}
+    <ellipse cx="54" cy="50" rx="2.5" ry="2" fill="#121212"/>
+    <ellipse cx="66" cy="50" rx="2.5" ry="2" fill="#121212"/>
+
+    {/* Confident smile */}
+    <path d="M54 58 Q60 62 66 58" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+
+    {/* Shoulders */}
+    <path d="M45 65 Q35 70 30 85" stroke="#4A5D4B" strokeWidth="12" strokeLinecap="round"/>
+    <path d="M75 65 Q85 70 90 85" stroke="#4A5D4B" strokeWidth="12" strokeLinecap="round"/>
+
+    {/* Small badge/emblem */}
+    <circle cx="50" cy="75" r="4" fill="#D4915D"/>
+    <circle cx="50" cy="75" r="2" fill="#F5F0E6"/>
+  </svg>
+);
+
+// Teacher/REET illustration
+export const TeacherIllustration = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Blackboard */}
+    <rect x="15" y="20" width="90" height="60" rx="3" fill="#4A5D4B"/>
+    <rect x="20" y="25" width="80" height="50" fill="#3D4F3E"/>
+
+    {/* Chalk writing */}
+    <text x="30" y="45" fill="#F5F0E6" fontSize="12" fontFamily="serif">ABC</text>
+    <text x="30" y="60" fill="#F5F0E6" fontSize="10" fontFamily="serif">1+1=2</text>
+
+    {/* Teacher body */}
+    <ellipse cx="85" cy="95" rx="15" ry="18" fill="#9CAF88"/>
+
+    {/* Head */}
+    <circle cx="85" cy="72" r="14" fill="#D4A574"/>
+
+    {/* Hair in bun */}
+    <circle cx="85" cy="60" r="8" fill="#4A3728"/>
+    <path d="M71 68 Q73 58 85 55 Q97 58 99 68" fill="#4A3728"/>
+
+    {/* Glasses */}
+    <circle cx="80" cy="72" r="5" stroke="#8B8178" strokeWidth="1.5" fill="none"/>
+    <circle cx="90" cy="72" r="5" stroke="#8B8178" strokeWidth="1.5" fill="none"/>
+    <line x1="85" y1="72" x2="85" y2="72" stroke="#8B8178" strokeWidth="1.5"/>
+
+    {/* Eyes behind glasses */}
+    <circle cx="80" cy="72" r="1.5" fill="#121212"/>
+    <circle cx="90" cy="72" r="1.5" fill="#121212"/>
+
+    {/* Warm smile */}
+    <path d="M82 78 Q85 81 88 78" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+
+    {/* Arm pointing */}
+    <path d="M75 88 Q55 75 45 65" stroke="#D4A574" strokeWidth="6" strokeLinecap="round"/>
+
+    {/* Pointer/chalk */}
+    <line x1="45" y1="65" x2="35" y2="55" stroke="#F5F0E6" strokeWidth="3" strokeLinecap="round"/>
+  </svg>
+);
+
+// Document/Patwar clerk illustration
+export const ClerkIllustration = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Stack of documents */}
+    <rect x="55" y="60" width="45" height="50" rx="2" fill="#E8DCC4" stroke="#8B8178" strokeWidth="1"/>
+    <rect x="58" y="55" width="45" height="50" rx="2" fill="#F5F0E6" stroke="#8B8178" strokeWidth="1"/>
+    <rect x="61" y="50" width="45" height="50" rx="2" fill="#FFF" stroke="#8B8178" strokeWidth="1"/>
+
+    {/* Document lines */}
+    <line x1="68" y1="60" x2="98" y2="60" stroke="#E8DCC4" strokeWidth="2"/>
+    <line x1="68" y1="68" x2="95" y2="68" stroke="#E8DCC4" strokeWidth="2"/>
+    <line x1="68" y1="76" x2="90" y2="76" stroke="#E8DCC4" strokeWidth="2"/>
+
+    {/* Stamp */}
+    <circle cx="85" cy="88" r="8" fill="none" stroke="#C4785B" strokeWidth="2"/>
+    <text x="85" y="91" textAnchor="middle" fill="#C4785B" fontSize="6" fontWeight="bold">OK</text>
+
+    {/* Person */}
+    <ellipse cx="35" cy="85" rx="18" ry="22" fill="#7D8E6E"/>
+
+    {/* Head */}
+    <circle cx="35" cy="55" r="16" fill="#D4A574"/>
+
+    {/* Hair */}
+    <path d="M19 50 Q22 38 35 35 Q48 38 51 50 Q45 44 35 42 Q25 44 19 50" fill="#4A3728"/>
+
+    {/* Eyes */}
+    <ellipse cx="30" cy="55" rx="2" ry="1.5" fill="#121212"/>
+    <ellipse cx="40" cy="55" rx="2" ry="1.5" fill="#121212"/>
+
+    {/* Focused expression */}
+    <path d="M32 62 Q35 64 38 62" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+
+    {/* Arm holding pen */}
+    <path d="M50 80 Q60 70 70 65" stroke="#D4A574" strokeWidth="6" strokeLinecap="round"/>
+
+    {/* Pen */}
+    <rect x="68" y="60" width="3" height="15" rx="1" fill="#4A5D4B" transform="rotate(-30 70 67)"/>
+  </svg>
+);
+
 export const InfiniteMarquee = () => {
   const items = [
-    "RAJASTHAN ADMIN SERVICES", "UPSC 2025", "POLICE CONSTABLE", "REET LEVEL 1", "PATWAR EXAM", 
+    "RAJASTHAN ADMIN SERVICES", "UPSC 2025", "POLICE CONSTABLE", "REET LEVEL 1", "PATWAR EXAM",
     "HIGH COURT LDC", "RPSC SI", "COLLEGE LECTURER"
   ];
 
