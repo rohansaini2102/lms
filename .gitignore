@@ -30,3 +30,6 @@ nul
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code
+.claude
